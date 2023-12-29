@@ -3,7 +3,6 @@ package com.impesud.products;
 import jakarta.inject.Singleton;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import jakarta.transaction.Transactional;
 
 import java.util.List;
 
@@ -12,11 +11,6 @@ public class ProductRepository {
 
     @PersistenceContext(unitName = "databaseUnit")
     private EntityManager entityManager;
-
-    @Transactional
-    public void save(Product product) {
-        entityManager.persist(product);
-    }
 
     public Product findById(Long id) {
         return entityManager.find(Product.class, id);
