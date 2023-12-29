@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Jakarta EE 10 and MySql</title>
+
+        <style>
+            body {
+                background: #ecf3f6;
+                color: #000;
+            }
+            a {
+                font-weight: bold;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+
+        <h1>Example Connection Jakarta EE 10 with MySQL</h2>
+        <h2>All Products</h2>
+        <button onclick="getProducts()">Products List</button>
+        <ul id="productList"></ul>
+    
+        <script>
+            function getProducts() {
+                fetch('api/products') 
+                    .then(response => response.json())
+                    .then(data => displayProducts(data))
+                    .catch(error => console.error('Error:', error));
+            }
+    
+            function displayProducts(products) {
+                const productListElement = document.getElementById('productList');
+                productListElement.innerHTML = '';
+    
+                products.forEach(product => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = `Name: ${product.name}, Price: ${product.price}`; 
+                    productListElement.appendChild(listItem);
+                });
+            }
+        </script>
+    </body>
+</html>
