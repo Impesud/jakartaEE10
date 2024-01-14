@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Jakarta EE 10 using Jakarta Server Faces (JSF) and PrimeFaces</title>
+        <link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/css/style.css" />
+    </h:head>
+    <h:body>
+        <h:graphicImage name="/images/logo.jpg" alt="Logo" width="100"/>
+        <h1>
+            Jakarta EE 10 using Jakarta Server Faces (JSF) and PrimeFaces
+        </h1>
+        <h2>All Products</h2>
+        <p:dataList id="productList" var="product" value="#{productBean.products}">
+            <p:panel header="Product Information">
+                <p:outputLabel value="Name: #{product.name}" />
+                <br/>
+                <p:outputLabel value="Price: #{product.price}" />
+            </p:panel>
+        </p:dataList>
+    </h:body>
+</html>
